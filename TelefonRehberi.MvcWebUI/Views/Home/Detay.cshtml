@@ -1,0 +1,79 @@
+﻿@model TelefonRehberi.MvcWebUI.Models.HomeDetayViewModel
+@{
+    ViewBag.Title = "Detay";
+}
+<br />
+<h4>Calisan Detay Bilgileri</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-2">
+        <p class="font-weight-bold">@Html.LabelFor(i => i.Calisan.CalisanId)</p>
+    </div>
+    <div class="col-md-10">
+        @Model.Calisan.CalisanId
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-2">
+        <p class="font-weight-bold">@Html.LabelFor(i => i.Calisan.Ad)</p>
+    </div>
+    <div class="col-md-10">
+        @Model.Calisan.Ad
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-2">
+        <p class="font-weight-bold">@Html.LabelFor(i => i.Calisan.Soyad)</p>
+    </div>
+    <div class="col-md-10">
+        @Model.Calisan.Soyad
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-2">
+        <p class="font-weight-bold">@Html.LabelFor(i => i.Calisan.Telefon)</p>
+    </div>
+    <div class="col-md-10">
+        @Model.Calisan.Telefon
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-2">
+        <p class="font-weight-bold">@Html.LabelFor(i => i.Calisan.DepartmanId)</p>
+    </div>
+    <div class="col-md-10">
+        @Model.Calisan.Departman.Ad
+    </div>
+</div>
+<hr />
+
+<div class="row">
+
+    <p class="font-weight-bold col-md-2">@Html.LabelFor(i => i.Calisan.YoneticiId)</p>
+
+    <div class="col-md-10">
+        @if (Model.Calisan.YoneticiId == null)
+        {
+            <span>Yönetici Yok</span>
+        }
+        else
+        {
+            foreach (var yonetici in Model.Calisanlar)
+            {
+                if (yonetici.CalisanId == Model.Calisan.YoneticiId)
+                {
+                    <span>@yonetici.Ad</span>
+                }
+            }
+        }
+
+    </div>
+</div>
+<hr />
+@Html.ActionLink("Geri Dön", "Index","Home",null, new { @class = "btn btn-dark" })
+<br /><br />

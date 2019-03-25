@@ -1,0 +1,27 @@
+﻿@model IEnumerable<TelefonRehberi.MvcWebUI.Models.HomeViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Ad</th>
+            <th scope="col">Telefon</th>
+            <th scope="col">Detay</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var calisan in Model)
+        {
+            <tr>
+                <th scope="row">@calisan.CalisanId</th>
+                <td>@calisan.Ad</td>
+                <td>@calisan.Telefon</td>
+                <td>@Html.ActionLink("Detay", "Detay", "Home", new { id = @calisan.CalisanId }, new { @class = "btn btn-dark" })</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

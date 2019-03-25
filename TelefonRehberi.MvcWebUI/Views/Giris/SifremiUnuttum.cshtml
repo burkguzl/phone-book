@@ -1,0 +1,68 @@
+﻿@model TelefonRehberi.MvcWebUI.Models.Giris.LoginSifremiUnuttumViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sifremi Unuttum</title>
+
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="~/Content/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="~/Content/css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="signup-content">
+            <div class="signup-form">
+                <h2 class="form-title">Sifremi Unuttum</h2>
+
+                @if (ViewBag.Status == true)
+                {
+                    <span>Şifreniz @Model.Email adresinize gönderilmiştir.</span>
+                }
+                else
+                {
+
+                    using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="form-group">
+                            <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input type="text" name="Username" id="name" placeholder="Kullanıcı Adı" />
+                            @Html.ValidationMessageFor(i => i.Username, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label><i class="zmdi zmdi-email"></i></label>
+                            <input type="email" name="Email" id="email" placeholder="Email" />
+                            @Html.ValidationMessageFor(i => i.Email, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group form-button">
+                            <input type="submit" id="signin" class="form-submit" value="Gönder" />
+                        </div>
+                    }
+                }
+
+            </div>
+            <div class="signup-image">
+                <figure><img src="/Content/images/signup-image.jpg" alt="sing up image"></figure>
+                <a href="/Giris/Login" class="signup-image-link">Giris Yap</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="~/Content/js/main.js"></script>
+
+</body>
+</html>

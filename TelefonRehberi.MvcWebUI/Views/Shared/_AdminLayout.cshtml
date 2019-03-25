@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telefon Rehberi - Admin</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand">Telefon Defteri - Admin</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a href="/Calisan/Kayit"class="btn btn-outline-success my-2 my-sm-0" type="submit">Yeni Çalışan Ekle</a>
+
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/Calisan/Liste">Calisan Listesi</a>
+
+                        </li>
+                        <li class="nav-item active">
+                            <a href="/Departman/Kayit"class="btn btn-outline-success my-2 my-sm-0" type="submit">Yeni Departman Ekle</a>
+
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/Departman/Liste">Departman Listesi</a>
+
+                        </li>
+
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/Home/Index">Anasayfa</a>
+
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <br/>
+            @if (TempData["message"] != null)
+            {
+                <div class="alert alert-success" role="alert">@TempData["message"]</div>
+            }
+            @RenderBody()
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
